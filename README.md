@@ -2,7 +2,7 @@
  
 A prototype that checks an alcohol label image against its application data: brand name, class/type, alcohol content, net contents, and the government warning.
  
-**Live app:** `<your deployed URL>`
+**Live app:** `https://label-check-772841493755.us-central1.run.app/`
  
 ## Run it
  

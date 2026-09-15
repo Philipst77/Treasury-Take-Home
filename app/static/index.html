@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Label check</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏷️</text></svg>">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap">
+      <h1>Label check</h1>
+      <p class="lede">Compare a label image with its application. Results take a few seconds.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="modes" role="tablist" aria-label="How many labels">
+      <button role="tab" id="tab-one" aria-controls="panel-one" aria-selected="true">Check one label</button>
+      <button role="tab" id="tab-many" aria-controls="panel-many" aria-selected="false" tabindex="-1">Check many labels</button>
+    </nav>
+
+    <!-- One label ------------------------------------------------------- -->
+    <section id="panel-one" role="tabpanel" aria-labelledby="tab-one">
+      <form id="single-form" class="single" novalidate>
+        <div class="image-side">
+          <h2 class="step">1. Label image</h2>
+          <label class="drop" id="drop">
+            <input type="file" id="image" name="image" accept="image/jpeg,image/png,image/webp,image/tiff,image/bmp">
+            <img id="preview" alt="" hidden>
+            <span class="drop-text" id="drop-text">
+              <strong>Choose a label image</strong>
+              <span>or drag it here. JPG, PNG, or WEBP.</span>
+            </span>
+          </label>
+          <div class="sample-row">
+            <label for="sample">Or try a sample label</label>
+            <select id="sample"><option value="">Pick a sample…</option></select>
+          </div>
+        </div>
+
+        <div class="form-side">
+          <h2 class="step">2. What the application says</h2>
+          <p class="hint">Leave a box empty to skip that check.</p>
+          <div class="field"><label for="brand_name">Brand name</label>
+            <input id="brand_name" name="brand_name" autocomplete="off" placeholder="e.g. OLD TOM DISTILLERY"></div>
+          <div class="field"><label for="class_type">Class / type</label>
+            <input id="class_type" name="class_type" autocomplete="off" placeholder="e.g. Kentucky Straight Bourbon Whiskey"></div>
+          <div class="pair">
+            <div class="field"><label for="alcohol_content">Alcohol content</label>
+              <input id="alcohol_content" name="alcohol_content" autocomplete="off" placeholder="e.g. 45% Alc./Vol."></div>
+            <div class="field"><label for="net_contents">Net contents</label>
+              <input id="net_contents" name="net_contents" autocomplete="off" placeholder="e.g. 750 mL"></div>
+          </div>
+          <details class="more">
+            <summary>More fields (bottler, country of origin)</summary>
+            <div class="field"><label for="bottler">Bottler name and address</label>
+              <input id="bottler" name="bottler" autocomplete="off"></div>
+            <div class="field"><label for="country_of_origin">Country of origin (imports)</label>
+              <input id="country_of_origin" name="country_of_origin" autocomplete="off"></div>
+          </details>
+          <label class="check"><input type="checkbox" id="check_warning" checked>
+            Check the government warning</label>
+          <button type="submit" class="primary" id="check-btn">Check label</button>
+          <p class="error" id="single-error" role="alert" hidden></p>
+        </div>
+      </form>
+
+      <div id="single-result" class="result" aria-live="polite" tabindex="-1"></div>
+    </section>
+
+    <!-- Many labels ----------------------------------------------------- -->
+    <section id="panel-many" role="tabpanel" aria-labelledby="tab-many" hidden>
+      <div class="batch-setup">
+        <div class="batch-step">
+          <h2 class="step">1. Label images</h2>
+          <label class="button-like" for="batch-images">Choose images</label>
+          <input type="file" id="batch-images" accept="image/*" multiple class="visually-hidden">
+          <p id="batch-images-info" class="hint">No images chosen.</p>
+        </div>
+        <div class="batch-step">
+          <h2 class="step">2. Application data</h2>
+          <label class="button-like" for="batch-csv">Choose spreadsheet (CSV)</label>
+          <input type="file" id="batch-csv" accept=".csv,text/csv" class="visually-hidden">
+          <p id="batch-csv-info" class="hint">One row per image, matched by file name.
+            <a href="#" id="template-link">Download a blank template</a>.</p>
+        </div>
+        <div class="batch-step">
+          <h2 class="step">3. Run</h2>
+          <button class="primary" id="batch-run" disabled>Check all labels</button>
+          <button class="quiet" id="batch-samples">Load the sample labels</button>
+        </div>
+      </div>
+      <p class="error" id="batch-error" role="alert" hidden></p>
+
+      <div id="batch-progress" class="progress" hidden>
+        <div class="progress-text" id="progress-text" aria-live="polite"></div>
+        <div class="bar"><div class="bar-fill" id="bar-fill"></div></div>
+      </div>
+
+      <div id="batch-summary" class="summary" hidden></div>
+      <div id="batch-results"></div>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    Prototype. Results support an agent's review and don't replace it. Images are processed on this server and not stored.
+  </footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>

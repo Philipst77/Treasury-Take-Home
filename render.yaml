@@ -1,0 +1,10 @@
+# Render Blueprint: New > Blueprint > select this repo.
+services:
+  - type: web
+    name: label-verifier
+    runtime: docker
+    plan: starter   # the free plan's 0.1 CPU is too slow for OCR; see README
+    healthCheckPath: /api/health
+    envVars:
+      - key: OCR_THREADS
+        value: "4"

@@ -1,0 +1,11 @@
+filename,description,expected_result,brand_name,class_type,alcohol_content,net_contents,bottler,country_of_origin
+01_old_tom_correct.png,Correct label; everything matches,pass,OLD TOM DISTILLERY,Kentucky Straight Bourbon Whiskey,45% Alc./Vol. (90 Proof),750 mL,"Old Tom Distillery, Bardstown, Kentucky",
+02_stones_throw_capitalization.png,"Label in capitals, application in title case (should still match)",pass,Stone's Throw,small batch gin,41.5% Alc./Vol. (83 Proof),750 mL,"Stone's Throw Spirits Co., Portland, Oregon",
+03_wrong_abv.png,"Label says 40%, application says 45%",fail,OLD TOM DISTILLERY,Kentucky Straight Bourbon Whiskey,45% Alc./Vol. (90 Proof),750 mL,"Old Tom Distillery, Bardstown, Kentucky",
+04_titlecase_warning.png,Warning heading is not in capitals,fail,OLD TOM DISTILLERY,Kentucky Straight Bourbon Whiskey,45% Alc./Vol. (90 Proof),750 mL,"Old Tom Distillery, Bardstown, Kentucky",
+05_reworded_warning.png,Warning wording was changed,fail,OLD TOM DISTILLERY,Kentucky Straight Bourbon Whiskey,45% Alc./Vol. (90 Proof),750 mL,"Old Tom Distillery, Bardstown, Kentucky",
+06_wrong_net_contents.png,"Label says 1 L, application says 750 mL",fail,OLD TOM DISTILLERY,Kentucky Straight Bourbon Whiskey,45% Alc./Vol. (90 Proof),750 mL,"Old Tom Distillery, Bardstown, Kentucky",
+07_missing_warning.png,No government warning on the label,fail,OLD TOM DISTILLERY,Kentucky Straight Bourbon Whiskey,45% Alc./Vol. (90 Proof),750 mL,"Old Tom Distillery, Bardstown, Kentucky",
+08_imported_wine_us_units.png,Imported wine; 25.4 FL. OZ. on label equals 750 mL,pass,Castello di Verna,Chianti Classico Red Wine,13.5%,750 mL,"Vine Road Imports, Newark, NJ",Italy
+09_sideways_warning.png,Warning printed up the side of the label,pass,Harbor Light,India Pale Ale,6.8% ABV,12 fl oz,"Harbor Light Brewing, Seattle, Washington",
+10_tilted_photo_with_glare.jpg,"Phone photo: tilted, glare, uneven light",pass,OLD TOM DISTILLERY,Kentucky Straight Bourbon Whiskey,45% Alc./Vol. (90 Proof),750 mL,"Old Tom Distillery, Bardstown, Kentucky",

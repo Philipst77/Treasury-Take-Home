@@ -2,7 +2,9 @@
  
 A prototype that checks an alcohol label image against its application data: brand name, class/type, alcohol content, net contents, and the government warning.
  
+
 **Live app:** `https://label-check-772841493755.us-central1.run.app/`
+- The live app is on Google Cloud Run, which shuts down when idle to stay free, so the first request after a quiet period can take several extra seconds. After that, checks take about a second. In production, one instance would stay running.
  
 ## Run it
  

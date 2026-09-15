@@ -37,7 +37,7 @@ Each field is marked **Matches**, **Needs review**, or **Doesn't match**. Batch 
  
 ## Tools
  
-FastAPI, Tesseract OCR, OpenCV, RapidFuzz, plain HTML/CSS/JavaScript, pytest, and Docker.
+FastAPI, Tesseract OCR, OpenCV, RapidFuzz, plain HTML/CSS/JavaScript, pytest, and Docker, claude for image generation.
  
 ## Assumptions and limitations
  
